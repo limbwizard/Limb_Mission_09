@@ -1,38 +1,110 @@
+/* Base styling */
+body,
+h1,
+h2,
+h3,
+div,
+.App {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell,
+    'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #e0e5ec; /* Light grey background for contrast */
+}
+
+/* App layout */
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
+.App-header,
+.welcome-message {
   background-color: #282c34;
+  color: white;
+  padding: 20px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
 }
 
+.welcome-message {
+  background-color: #20232a; /* Distinguish from App-header */
+}
+
+/* Links */
 .App-link {
   color: #61dafb;
+  transition: color 0.3s ease-in-out;
 }
 
+.App-link:hover {
+  color: #9bcaff; /* Lighter shade for hover effect */
+}
+
+/* Teams styling */
+.team {
+  background: #e0e5ec;
+  border: none;
+  border-radius: 20px;
+  box-shadow:
+    8px 8px 15px #a7aac1,
+    -8px -8px 15px #ffffff; /* Neumorphism effect */
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.team:hover {
+  transform: scale(1.02); /* Subtle grow effect on hover */
+}
+
+.teams-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Animations */
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+  animation: App-logo-spin infinite 20s linear;
+}
+
+/* Media queries */
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+@media (max-width: 768px) {
+  .team,
+  .teams-list {
+    padding: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .App-header,
+  .welcome-message {
+    padding: 15px;
+    font-size: calc(8px + 2vmin);
   }
 }
